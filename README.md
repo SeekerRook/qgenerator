@@ -2,7 +2,7 @@
 
 ## ΓΙΑ ΝΑ ΤΑ ΕΞΑΓΩ 
 1. Βρισκω το path του αρχειου (.txt) που θελω. Εστω raw.txt
-2. τρεχω `python qparser.py raw.txt data.json` οπου `data.json` το ονομα που θελω να σωθουν οι ερωτησεις
+2. τρεχω `python qparser.py raw.txt data.json batch_size` οπου `data.json` το ονομα που θελω να σωθουν οι ερωτησεις και `batch_size` το μεγεθος των batches που θελω να χωρισει τα δεδομενα (default 500)
 3. Για κάθε αρχείο json (πχ `data_part1.json`) που θα παραχθει τρέχω `python qgenerator.py data_part1.json data1.xlsx` οπου `data1.xlsx` το ονομα του αρχειου excel που θελω να σωσει τις ερωτησεις 
 
 ## ΓΙΑ ΝΑ ΤΑ ΑΝΕΒΑΣΩ 

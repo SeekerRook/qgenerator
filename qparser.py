@@ -6,6 +6,7 @@ ALPHA = list("αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔ∆ΕΖΗ�
 input = print
 part = 1
 data= []
+batchsize = 500
 tmp = {}
 def isint(str):
     try :
@@ -52,15 +53,17 @@ def commit():
     if (len(tmp.keys()) != 0):
         data.append(tmp)
     tmp = {}
-    if len(data) >= 500:
+    if len(data) >= batchsize:
         
         json.dump(data,open(argv[2].split('.')[0]+f"_pt{part}."+argv[2].split('.')[1],'w'), ensure_ascii=False)
         part +=1
         data = []
 if __name__ == "__main__":  
     file = open(argv[1],'r')
+    
     tphase = False 
-
+    if len(argv) >= 4:
+        batchsize = int(argv[3]) 
     for i in file.readlines():
         print(f"""
               '{i}'
@@ -107,7 +110,7 @@ if __name__ == "__main__":
               print (f"({a}) {d['answ'][a]}")
         except:
             _ = input(d)
-    if part == 0 :
+    if part == 1 :
         json.dump(data,open(argv[2],'w'), ensure_ascii=False)
     else:
         json.dump(data,open(argv[2].split('.')[0]+f"_pt{part}."+argv[2].split('.')[1],'w'), ensure_ascii=False)
